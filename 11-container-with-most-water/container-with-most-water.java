@@ -12,24 +12,19 @@ class Solution {
         // return maxWater;
 
         // Using two pointers
-        int left = 0; int right = height.length - 1;
+        int left = 0;
+        int right = height.length - 1;
+        int minHeight = 0;
         int maxWater = 0;
         int currentWater = 0;
 
         while (left < right) {
-        currentWater = Math.min(height[left], height[right]) * (right - left);
-        maxWater = Math.max(maxWater, currentWater);
+            minHeight = Math.min(height[left], height[right]);
+            currentWater = minHeight * (right - left);
+            maxWater = Math.max(maxWater, currentWater);
 
-        if(height[left] < height[right]) {
-            ++left;
-        } 
-        else if (height[left] > height[right]) {
-            --right;
-        }
-        else {
-            ++left;
-            --right;
-        }
+            while (left < right && height[left] <= minHeight) left++;
+            while (left < right && height[right] <= minHeight) right--;
         }
         return maxWater;
     }

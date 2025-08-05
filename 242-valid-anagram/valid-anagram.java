@@ -1,7 +1,6 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
-        int sLen = s.length(), tLen = t.length();
-        if (sLen != tLen) {
+        if (s.length() != t.length()) {
             return false;
         }
 
@@ -14,8 +13,8 @@ class Solution {
             --charCount[c - 'a'];
         }
 
-        for (int count : charCount) {
-            if (count != 0) {
+        for (int i = 0; i < charCount.length; ++i) {
+            if (charCount[i] != 0) {
                 return false;
             }
         }

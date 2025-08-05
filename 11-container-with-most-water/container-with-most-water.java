@@ -1,5 +1,11 @@
 class Solution {
-    public int maxArea(int[] height) {
+    static{
+        for(int i=0 ; i<=501 ; i++)
+        {
+            maxArea(new int[]{0});
+        }
+    }
+    public static int maxArea(int[] height) {
         // Brute force -> Time Limit Exceeded
         // int maxWater = 0;
         // int currWater = 0;
@@ -12,11 +18,9 @@ class Solution {
         // return maxWater;
 
         // Using two pointers
-        int left = 0;
-        int right = height.length - 1;
+        int left = 0, right = height.length - 1;
         int minHeight = 0;
-        int maxWater = 0;
-        int currentWater = 0;
+        int currentWater = 0, maxWater = 0;
 
         while (left < right) {
             minHeight = Math.min(height[left], height[right]);

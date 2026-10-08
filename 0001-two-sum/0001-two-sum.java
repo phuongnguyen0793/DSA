@@ -1,6 +1,6 @@
 class Solution {
     static {
-        for (int i = 0; i <= 100; i++) {
+        for (int i = 0; i <= 10; i++) {
             twoSum(new int[] { 0 }, 10);
         }
     }
